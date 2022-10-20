@@ -1,8 +1,8 @@
 const { merge } = require('webpack-merge')
-const HtmlPlugin = require('html-webpack-plugin')
+
 const commonConfig = require('./webpack.common')
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
-const { dependencies } = require('../package.json')
+const package = require('../package.json')
 const devConfig = {
 	mode: 'development',
 	devServer: {
@@ -12,7 +12,6 @@ const devConfig = {
 		},
 	},
 	plugins: [
-		new HtmlPlugin({ template: './public/index.html' }),
 		new ModuleFederationPlugin({
 			name: 'container',
 			remotes: {
@@ -20,7 +19,7 @@ const devConfig = {
 			},
 		}),
 	],
-	shared: dependencies,
+	shared: package.dependencies,
 }
 
 module.exports = merge(commonConfig, devConfig)
