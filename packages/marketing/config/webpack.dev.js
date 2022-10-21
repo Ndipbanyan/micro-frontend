@@ -17,9 +17,9 @@ const devConfig = {
 			name: 'marketing',
 			filename: 'remoteEntry.js',
 			exposes: { './MarketingApp': './src/bootstrap' },
+			shared: dependencies,
 		}),
 	],
-	shared: dependencies,
 }
 
 module.exports = merge(commonConfig, devConfig)

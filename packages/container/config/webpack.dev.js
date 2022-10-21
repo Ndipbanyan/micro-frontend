@@ -2,7 +2,7 @@ const { merge } = require('webpack-merge')
 
 const commonConfig = require('./webpack.common')
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
-const package = require('../package.json')
+const { dependencies } = require('../package.json')
 const devConfig = {
 	mode: 'development',
 	devServer: {
@@ -17,9 +17,9 @@ const devConfig = {
 			remotes: {
 				marketing: 'marketing@http://localhost:8081/remoteEntry.js',
 			},
+			shared: dependencies,
 		}),
 	],
-	shared: package.dependencies,
 }
 
 module.exports = merge(commonConfig, devConfig)
