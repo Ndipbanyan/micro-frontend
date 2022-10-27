@@ -5,7 +5,7 @@ const commonConfig = require('./webpack.common')
 prodConfig = {
 	mode: 'production',
 	output: {
-		filename: '[name].[contenthash].js',
+		filename: '[name].[contentash].js',
 		publicPath: '/marketing/latest/',
 	},
 	plugins: [

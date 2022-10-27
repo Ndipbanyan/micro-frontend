@@ -1,12 +1,12 @@
 const { merge } = require('webpack-merge')
 const commonConfig = require('../config/webpack.common')
-const domain = process.env.PRODUCTION_DOMAIN
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 const { dependencies } = require('../package.json')
+const domain = process.env.PRODUCTION_DOMAIN
 const prodConfig = {
 	mode: 'production',
 	output: {
-		filename: '[name].[contentash].js',
+		filename: '[name].[contenthash].js',
 		publicPath: '/container/latest/',
 	},
 	plugins: [
